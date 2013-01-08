@@ -4,6 +4,11 @@
 set -e
 
 PHP5_MIDGARD2_TARBALL=https://s3-eu-west-1.amazonaws.com/midgard-heroku/php5-midgard2.tar.gz
+TARGET_DIR=$HOME
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+cd $BUILD_DIR
 
 echo "-----> Installing php5-midgard2"
 curl --silent --max-time 60 --location "$PHP5_MIDGARD2_TARBALL" | tar xz
