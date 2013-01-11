@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+# Copied from heroku-buildpack-php-tyler, because of lack of support for dependencies and re usability
+
 cat <<EOF
 ---
 config_vars:
-PATH: $PATH
+PATH: /app/vendor/bin:/app/local/bin:/app/vendor/nginx/sbin:/app/vendor/php/bin:/app/vendor/php/sbin:/usr/local/bin:/usr/bin:/bin
+default_process_types:
+web: sh boot.sh
 EOF
